@@ -61,7 +61,6 @@ function startLoader() {
 
   updateCounter();
 }
-
 function animateCircle() {
   startLoader();
   gsap.from(".circles", 2, {
@@ -152,3 +151,11 @@ function animateCircle() {
     delay: 7.5,
   });
 }
+window.document.addEventListener("mousewheel",function(e){
+  const delta = e.deltaY/Math.abs(e.deltaY) * 500;
+  window.scrollBy({
+    top: delta/Math.abs(delta) * window.document.body.getBoundingClientRect().height,
+    behavior: "smooth"
+  })
+  console.log(window.scrollTop)
+})
